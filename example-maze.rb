@@ -1,3 +1,5 @@
+# https://gameswithcode.com/programming-games-with-ruby/
+
 def room1
   puts "You wake up in a cave.  There are 3 passages out.  You:"
   puts "  A.  Take the first passage."
@@ -13,7 +15,6 @@ def room1
   else
   	puts "that is not one of the choices."
   end
-
 end
 
 def room2
