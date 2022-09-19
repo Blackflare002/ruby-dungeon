@@ -44,27 +44,44 @@
 
 ################################
 
-puts "You are a brave adventurer, here on an adventure. Before you enter the maze-like Doom Fortress, what is your name?"
-name = gets.chomp
-puts "Welcome, #{name}. Do you dare enter the Doom Fortress now? YES or NO."
-start = gets.chomp.downcase
-playing = nil
-    if start == "yes"
-        playing = true
-    else
-        playing = false
-    end
-if playing == false
-    puts "Goodbye."
+# puts "You are a brave adventurer, here on an adventure. Before you enter the maze-like Doom Fortress, what is your name?"
+# name = gets.chomp
+# puts "Welcome, #{name}. Do you dare enter the Doom Fortress now? YES or NO."
+# start = gets.chomp.downcase
+# playing = nil
+#     if start == "yes"
+#         playing = true
+#     else
+#         playing = false
+#     end
+# if playing == false
+#     puts "Goodbye."
+# end
+
+# while playing == true
+# 	if @room == 1
+# 		room1
+# 	elsif @room == 2
+# 		room2
+# 	elsif @room == 3
+# 		room3
+# #MORE CHOICES HERE
+# 	end
+# end
+
+el = true
+$hp = 100
+$points = 0
+
+def ex(hp, points)
+	$hp -= 10
+	$points += 10
+	el = false
 end
 
-while playing == true
-	if @room == 1
-		room1
-	elsif @room == 2
-		room2
-	elsif @room == 3
-		room3
-#MORE CHOICES HERE
-	end
-end
+ex($hp, $points)
+
+puts defined? $hp
+puts defined? $points
+puts $hp
+puts $points
