@@ -63,23 +63,30 @@ end
   def room4(hp, points)
 	$hp -= 50
 	$points += 25
-	puts "A bloodthirsty minotaur inhabits this room! After a brutal battle, you manage to escape with your life..."
-	puts "You may continue North once more, or take the East passage, or return to the previous room."
-	puts "Be warned: should you return to this room, the minotaur will be waiting for you."
-	puts "HP: #{$hp}"
-	puts "Points: #{$points}"
-	puts "A.  Take the North passage."
-	puts "B.  Take the East passage."
-	puts "C.  Take the South passage."
-	answer = gets.chomp
-	if answer.downcase == "a"
-		@room = 7
-	elsif answer.downcase == "b"
-		@room = 5
-	elsif answer.downcase == "c"
-		@room = 2
+	if $hp == 0
+		@playing = false
+		puts "The minotaur was waiting for you! It ambushes you, and you are quickly slain."
+		puts "YOU DIED. GAME OVER."
+		puts "Thanks for playing! Points: #{$points}"
 	else
-		puts "Try again."
+		puts "A bloodthirsty minotaur inhabits this room! After a brutal battle, you manage to escape with your life..."
+		puts "You may continue North once more, or take the East passage, or return to the previous room."
+		puts "Be warned: should you return to this room, the minotaur will be waiting for you."
+		puts "HP: #{$hp}"
+		puts "Points: #{$points}"
+		puts "A.  Take the North passage."
+		puts "B.  Take the East passage."
+		puts "C.  Take the South passage."
+		answer = gets.chomp
+		if answer.downcase == "a"
+			@room = 7
+		elsif answer.downcase == "b"
+			@room = 5
+		elsif answer.downcase == "c"
+			@room = 2
+		else
+			puts "Try again."
+		end
 	end
 end
 
@@ -170,26 +177,21 @@ end
 	spectral fangs into your flesh!"
 	$hp -= 75
 	if $hp > 0
-		puts "Although you are injured, you stand triumphant against the spirit, banishing from this realm with the sheer force of your will!"
+		puts "Although you are injured, you stand triumphant against the spirit, banishing it from this realm with the sheer force of your will!"
 		puts "You climb through the exit and emerge into the sunlight, having conquered the dreaded Doom Fortress!"
 		puts "CONGRATULATIONS! YOU WIN! Points: #{$points}"
-		playing = false
+		@playing = false
 	else
 		puts "You are too weak! You collapse to the ground as your vision fades, and you feel an unnatural cold seep into your bones!
 		The spirit drains all of your life energy, and you die!"
 	end	
 end
 
-if $hp == 0
-	playing = false
-	puts "YOU DIED. GAME OVER."
-	puts "Thanks for playing! Points: #{$points}"
-end
-
 #PROGRAM STARTS HERE:
 @room = 1
 @playing = true
-while @playing == true
+
+while @playing == true && $hp > 0
 	if @room == 1
 		room1($hp, $points)
 	elsif @room == 2
@@ -210,4 +212,5 @@ while @playing == true
 		room9($hp, $points)
 	end
 end
-puts "Thanks for playing the dungeon game."
+
+puts "***** Thanks for playing the dungeon game! *****"
