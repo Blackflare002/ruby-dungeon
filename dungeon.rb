@@ -1,8 +1,3 @@
-# 6 to 9 rooms
-# hp tracking
-# points tracking
-# Backtracking? Or, "the door seals shut behind you."
-
 $points = 0
 $hp = 100
 
@@ -12,18 +7,18 @@ puts "Points: #{$points}"
 
 def room1(hp, points)
     puts "You have entered the Doom Fortress, and the entrance has sealed shut behind you. There is nothing in this room but dust and
-	a few scattered bones."
+a few scattered bones."
     puts "Three passages spread out before you. You must choose one."
     puts "(Type only the letter: A, B or C)"
-    puts "  A.  Take the West passage."
+    puts "  A.  Take the North passage."
     puts "  B.  Take the East passage."
-    puts "  C.  Take the North passage."
+    puts "  C.  Take the West passage."
     answer = gets.chomp
-    if answer.downcase == "a"
+    if answer.downcase == "c"
       @room = 2
     elsif answer.downcase == "b"
         @room = 3
-    elsif answer.downcase == "c"
+    elsif answer.downcase == "a"
         @room = 5
     else
         puts "Try again. Type A, B or C"
@@ -33,12 +28,12 @@ def room1(hp, points)
   def room2(hp, points)
 	puts "Rats and bugs scurry back to their hiding places as you enter. The floor of this room is covered in bones, and smells of blood."
 	puts "There is only the North passage available, otherwise you may return to the first room."
-	puts "A.  Return to the entrance (East)."
-	puts "B.  Take the North passage."
+	puts "A.  Take the North passage."
+	puts "B.  Return to the entrance (East)."
 	answer = gets.chomp
-	if answer.downcase == "a"
+	if answer.downcase == "b"
 		@room = 1
-	elsif answer.downcase == "b"
+	elsif answer.downcase == "a"
 		@room = 4
 	else
 		puts "Try again."
@@ -48,12 +43,12 @@ end
   def room3(hp, points)
 	puts "This room is unusually quiet. The dust stirrs mysteriously."
 	puts "There is only the North passage available, otherwise you may return to the first room."
-	puts "A.  Return to the entrance (West)."
-	puts "B.  Take the North passage."
+	puts "A.  Take the North passage."
+	puts "B.  Return to the entrance (West)."
 	answer = gets.chomp
-	if answer.downcase == "a"
+	if answer.downcase == "b"
 		@room = 1
-	elsif answer.downcase == "b"
+	elsif answer.downcase == "a"
 		@room = 6
 	else
 		puts "Try again."
@@ -65,7 +60,7 @@ end
 	$points += 25
 	if $hp == 0
 		@playing = false
-		puts "The minotaur was waiting for you! It ambushes you, and you are quickly slain."
+		puts "A bloodthirsty minotaur inhabits this room! It ambushes you, and you are quickly slain."
 		puts "YOU DIED. GAME OVER."
 		puts "Thanks for playing! Points: #{$points}"
 	else
@@ -96,7 +91,7 @@ end
 	puts "A.  Take the North passage."
 	puts "B.  Take the East passage."
 	puts "C.  Take the West passage."
-	puts "D.  Return to the entrance."
+	puts "D.  Return to the entrance (South)."
 	answer = gets.chomp
 	if answer.downcase == "a"
 		@room = 8
@@ -132,16 +127,18 @@ end
 end
 
   def room7(hp, points)
+	$points += 10
 	puts "This room is littered with the skeletal remains of others who had tried to conquer the Doom Fortress before you."
 	puts "Clutched in the hand of one of these skeletons in a tattered note. It reads:"
 	puts "'My party and I managed to weaken the evil spirit that guards the exit, though I fear it has cost us our lives.
 Now, instead of instantly killing anyone who crosses it path, it deals 75 damage instead! There is hope for a healthy adventurer!'"
-	puts "A.  Take the South passage."
-	puts "B.  Take the East passage."
+	puts "Points: #{$points}"
+	puts "A.  Take the East passage."
+	puts "B.  Take the South passage."
 	answer = gets.chomp
-	if answer.downcase == "a"
+	if answer.downcase == "b"
 		@room = 4
-	elsif answer.downcase == "b"
+	elsif answer.downcase == "a"
 		@room = 8
 	else
 		puts "Try again."
@@ -174,7 +171,7 @@ end
 
   def room9(hp, points)
 	puts "This room is haunted by a powerful evil spirit! Before you can react, it has enveloped you in its cold, black mist and sunk its
-	spectral fangs into your flesh!"
+spectral fangs into your flesh!"
 	$hp -= 75
 	if $hp > 0
 		puts "Although you are injured, you stand triumphant against the spirit, banishing it from this realm with the sheer force of your will!"
