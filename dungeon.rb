@@ -129,7 +129,7 @@ end
   def room7(hp, points)
 	$points += 10
 	puts "This room is littered with the skeletal remains of others who had tried to conquer the Doom Fortress before you."
-	puts "Clutched in the hand of one of these skeletons in a tattered note. It reads:"
+	puts "Clutched in the hand of one of these skeletons is a tattered note. It reads:"
 	puts "'My party and I managed to weaken the evil spirit that guards the exit, though I fear it has cost us our lives.
 Now, instead of instantly killing anyone who crosses it path, it deals 75 damage instead! There is hope for a healthy adventurer!'"
 	puts "Points: #{$points}"
